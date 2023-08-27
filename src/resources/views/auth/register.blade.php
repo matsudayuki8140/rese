@@ -1,59 +1,32 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+@endsection
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+@section('main')
+<div class="auth-card">
+    <div class="auth-card__top">
+        <p class="auth-card__title">Registration</p>
+    </div>
+    <div class="auth-card__bottom">
+        <form action="" method="post">
+            <div class="auth-card__row">
+                <img src="{{ asset('storage/icon/username.svg') }}" alt="username.svg" class="auth-card__icon" width="20" height="20">
+                <input type="text" class="auth-card__input" placeholder="Username">
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="auth-card__row">
+                <img src="{{ asset('storage/icon/email.svg') }}" alt="username.svg" class="auth-card__icon" width="20" height="20">
+                <input type="text" class="auth-card__input" placeholder="Email">
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+            <div class="auth-card__row">
+                <img src="{{ asset('storage/icon/password.svg') }}" alt="username.svg" class="auth-card__icon" width="20" height="20">
+                <input type="text" class="auth-card__input" placeholder="Password">
             </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+            <div class="auth-card__button-container">
+                <button class="auth-card__button">登録</button>
             </div>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+</div>
+@endsection
