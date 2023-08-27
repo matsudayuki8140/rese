@@ -138,7 +138,6 @@ body {
     padding: 80px 0 0 0;
     margin: 0;
     text-align: center;
-    color: #00d;
     font-size: 30px;
     font-weight: bold;
     transition: 0.5s;
@@ -146,6 +145,25 @@ body {
 
 .sample_menu.active{
     left: 0;
+}
+
+.sample_menu a {
+    text-decoration: none;
+    color: #00d;
+}
+.sample_menu a:hover {
+    color: #0080ff;
+}
+
+.logout {
+    border: none;
+    background-color: #f5f5f5;
+    color: #00d;
+    font-size: 30px;
+    font-weight: bold;
+}
+.logout:hover {
+    color: #0080ff;
 }
 
 .main {

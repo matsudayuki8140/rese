@@ -29,9 +29,19 @@
     </header>
     <nav class="sample_menu">
             <ul>
-                <li>Home</li>
-                <li>Logout</li>
-                <li>Mypage</li>
+                <li><a href="/">Home</a></li>
+                @if(Auth::check())
+                <li>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="logout">Logout</button>
+                    </form>
+                </li>
+                <li><a href="/mypage">Mypage</a></li>
+                @else
+                <li><a href="{{ route('register') }}">Registration</a></li>
+                <li><a href="{{ route('login') }}">Login</a></li>
+                @endif
             </ul>
         </nav>
     <main class="main">
